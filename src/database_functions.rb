@@ -13,7 +13,6 @@ class DatabaseFunctions
         puts "Database already exists.Please choose another filename" .red    # checks for filename conflicts 
         count = 1
         return false
-        break
       end
     end
     if (count == 0)
@@ -48,11 +47,14 @@ class DatabaseFunctions
     if (length == 6)
       db_name.execute "INSERT INTO Contacts VALUES('#{command[2]}','#{command[3]}','#{command[5]}' )"
       puts "contact added!".green
+      return true
     elsif (length == 5)
       db_name.execute "INSERT INTO Contacts VALUES('#{command[2]}','','#{command[4]}' )"
       puts "contact added!".green
+      return true
     else
       puts "please enter the add command correctly!".red
+      return false
     end
   end
 
@@ -60,7 +62,6 @@ class DatabaseFunctions
     begin
       arr = []
       command = search_command.split(" ")
-      length = command.length
       stream = db_name.prepare "SELECT * FROM Contacts WHERE FirstName='#{command[1]}'"
       result = stream.execute
       result.each do |row|
@@ -89,6 +90,7 @@ class DatabaseFunctions
         return arr[0][2]
       else
         puts "contact does not exist!".red
+        return false
       end
     ensure
     stream.close if stream
@@ -113,19 +115,27 @@ class DatabaseFunctions
     end
   end
 
-  def self.send_message(send_command, db_name, user_name)
+  def self.send_message(send_command, db_name, user_name )
     command = send_command.split(" ")
-    length = command.length
     search_command = "search #{command[1]}"
     phone_number = search(search_command, db_name)
     phone_number = phone_number.split("")
     phone_number[0] = "234"
     phone_number = phone_number.join()
-    send_msg = open("http://api.smartsmssolutions.com/smsapi.php?username=oseahumhen&password=osevera&sender=#{user_name}&recipient=#{phone_number}&message=#{command[3]}")
+    i = 3
+    arr = []
+    while(command[i] != nil)
+      arr << command[i]
+      i += 1
+    end
+    msg = arr.join(" ")
+    send_msg = open("http://api.smartsmssolutions.com/smsapi.php?username=oseahumhen&password=osevera&sender=#{user_name}&recipient=#{phone_number}&message=#{msg}")
     if (send_msg.status[1] == "OK")
       puts "message sent!".green
+      return true
     else
       puts "message not sent!".red
+      return false
     end
   end
 

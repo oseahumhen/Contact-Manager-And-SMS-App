@@ -1,16 +1,24 @@
+
+<a href="https://codeclimate.com/repos/56cfb20278a2e5008500347f/feed"><img src="https://codeclimate.com/repos/56cfb20278a2e5008500347f/badges/e531666b51edf2494ca9/gpa.svg" /></a>
+					
+
 					********CONTACT MANAGER AND SMS APPLICATION********
+
 This application is a console application for managing contacts. It has the follwing functionality:
 
-•A user should be able to add a person on my contacts list with the
- following command: add -n <name> -p <phone number> This command will
- save the contact in an SQLite database
+1) Creation of a new contacts database or access to an existing one 
+2) Addition of contacts to the database
+3) Ability to search for any contact on the database
+4) Ability to send on way SMS to people in the contact list.
 
-•A user should be able to search for a person's contact by issuing a 
- command: search "Andela" should print the Andela's phone number. In 
- case we have more than one person using the name Andela, it should 
- ask: Which Andela? [1] James [2] Hellen [3] Joshua i.e. James Andela, 
- Hellen Andela, etc.   
+The application has an interactive command line interface that forms a relationship with the user 
+of the application
+					
+					LIST OF VALID COMMANDS IN THE APPLICATION
 
-•The system should be able to send simple one-way texts to the people 
- in the contacts. e.g. a command text James -m "We meet at Hogwarts, 
- 3 PM, Anthony".
+1) TO ADD A CONTACT: add -n <FirstName> <LastNAme> -p <PhoneNumber>
+2) TO SEARCH FOR A CONTACT: search <name>
+3) TO SEND AN SMS: text <recipient> -m <message> 
+4) TO SEE ALL CONTACTS: list
+5) TO SEE ALL COMMANDS: HELP
+6) TO EXIT: exit  
