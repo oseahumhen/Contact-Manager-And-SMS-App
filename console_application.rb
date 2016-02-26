@@ -1,18 +1,17 @@
 require 'colorize'
 require_relative 'src/database_functions.rb'
+puts "                ------------------------------------".green
 puts "                    Welcome to Contacts Manager".yellow
-puts "                ************************************".green
-puts "                ************************************".green
-puts "                ************************************".green
+puts "                ------------------------------------".green
 puts "Welcome to Contacts Manager. I am your assistant. May I know your name?".yellow
 user_name = gets.chomp
-puts "Welcome #{user_name}!Do you have a contacts list set up? (Y OR N)".yellow
+puts "Welcome #{user_name}!Do you have a contacts database set up? (Y OR N)".yellow
 answer = gets.chomp
 count = 0
 check = false
   while(count == 0) || (check == false)
     if(answer.downcase == "y")
-      puts"What is the name of your contact file".yellow
+      puts"What is the name of your contacts database".yellow
       name = gets.chomp
       db = DatabaseFunctions.open_contact_list(name)
       check = db
@@ -29,13 +28,14 @@ check = false
       answer = gets.chomp
     end
   end
+  puts " "
   DatabaseFunctions.help
   while true
     puts "type a command:"
     init_command = gets.chomp
     command = init_command.split(" ")
     length = command.length
-    if(command[0] == "exit")
+    if(command[0].downcase == "exit")
       puts "Goodbye #{user_name}. I hope to see you soon!".yellow
       break
     elsif(command[0] == "add")
@@ -44,9 +44,9 @@ check = false
       DatabaseFunctions.search(init_command, db)
     elsif(command[0] == "text") && (command[2] == "-m") 
       DatabaseFunctions.send_message(init_command,db,user_name)
-    elsif(command[0] == "list") && (length == 1) 
+    elsif(command[0].downcase == "list") && (length == 1) 
       DatabaseFunctions.list(db)
-    elsif(command[0] == "help") && (length == 1)
+    elsif(command[0].downcase == "help") && (length == 1)
       DatabaseFunctions.help
     else
       puts"Invalid command. please type help to see valid commands".red
