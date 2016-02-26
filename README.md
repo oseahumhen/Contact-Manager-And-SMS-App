@@ -1,14 +1,14 @@
 
 <a href="https://codeclimate.com/repos/56cfb20278a2e5008500347f/feed"><img src="https://codeclimate.com/repos/56cfb20278a2e5008500347f/badges/e531666b51edf2494ca9/gpa.svg" /></a>
 										
-					-----------------------------------
-					CONTACT MANAGER AND SMS APPLICATION
-					-----------------------------------
+----------------------------------------------------------
+CONTACT MANAGER AND SMS APPLICATION
+---------------------------------------------------------
 
 
 This application is a console application for managing contacts. It has the following functionality:
 
-•	Creation of a new contacts database or access to an existing one 
+•	Creation of a new contact database or access to an existing one 
 
 •	Addition of contacts to the database
 
@@ -18,17 +18,25 @@ This application is a console application for managing contacts. It has the foll
 
 
 The application has an interactive command line interface that forms a relationship with the user 
+
 of the application. Note that the database system used is SQLite database system.
 					
-					-----------------------------------------
-					LIST OF VALID COMMANDS IN THE APPLICATION
-					-----------------------------------------
+--------------------------------------------------------------
+LIST OF VALID COMMANDS IN THE APPLICATION
+---------------------------------------------------------------
 
-•	TO ADD A CONTACT: add -n [FirstName] [LastNAme] -p [PhoneNumber]
 
-•	TO SEARCH FOR A CONTACT: search [name]
+•	TO ADD A CONTACT: add -n [FirstName] [LastNAme] -p [PhoneNumber]. Note that it is not
 
-•	TO SEND AN SMS: text [recipient] -m [message] 
+	 compulsory to add a last name. Contacts can be added with just one name.
+
+•	TO SEARCH FOR A CONTACT: search [name]. If we have more than one search the application lists
+
+	all the contacts having the  name irrespective of weather the search keyword is the last name or
+	
+	first name
+
+•	TO SEND AN SMS: text [recipient] -m [message]. The application can only send messages.
 
 •	TO SEE ALL CONTACTS: list
 
@@ -36,27 +44,38 @@ of the application. Note that the database system used is SQLite database system
 
 •	TO EXIT: exit 
 
+-------------------
+INSTRUCTIONS
+-------------------
 
-Ruby gems that need to be installed to use this app include:
+•	From your command line prompt on your system, install the following Ruby gems(use gem install): 
 
-•	Colorize
+                	sqlite
 
-•	Sqlite3	(see specifications before you install this gem)
-
-						--------------
-						SPECIFICATIONS
-						--------------
+		colorize
 
 •	Ensure that sqlite dynamic linked library and sqlite tools is downloaded and installed in 
 
-	your system. The files exist for various OS platforms. choose the one for your OS.
+	your computer. The files exist for various OS platforms. choose the one for your OS.
 
-	Check the following link: https://www.sqlite.org/download.html unzip the sqlite3.exe
+	refer to the  following link: https://www.sqlite.org/download.html Download and  unzip the sqlite3.exe
 
-	sqlite3.dll. put the squlite.dll file in the bin folder of where ruby was installed on you system.
+	sqlite3.dll. Put the squlite.dll file in the bin folder of where ruby was installed on your system.
 
 	Note that this is very important.
 
+
+--------------------------------------------------------------------------------------------------
+IMPROVEMENTS THAT WILL BE INCORPORATED IN SUBSEQUENT VERSIONS
+--------------------------------------------------------------------------------------------------
+	
+•	Implementing a 2 way sms gateway system
+
+•	sending bulks sms with the application
+
+•	developing an excutable file for the application
+
+•	storing the contacts in a .txt file
 
 
 
