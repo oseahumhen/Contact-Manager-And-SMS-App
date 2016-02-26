@@ -42,7 +42,7 @@ check = false
       DatabaseFunctions.add_contact(init_command,length,db)
     elsif(length == 2) && (command[0] == "search")
       DatabaseFunctions.search(init_command, db)
-    elsif(length == 4) && (command[0] == "text") && (command[2] == "-m") 
+    elsif(command[0] == "text") && (command[2] == "-m") 
       DatabaseFunctions.send_message(init_command,db,user_name)
     elsif(command[0] == "list") && (length == 1) 
       DatabaseFunctions.list(db)
