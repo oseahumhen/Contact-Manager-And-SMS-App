@@ -145,7 +145,7 @@ class DatabaseFunctions
     puts "TO SEARCH FOR A CONTACT: search <name>".green
     puts "TO SEND AN SMS: text <recipient> -m <message> ".green
     puts "TO SEE ALL CONTACTS: list".green
-    puts "TO SEE ALL COMMANDS: HELP ".green
+    puts "TO SEE ALL COMMANDS: help ".green
     puts "TO EXIT: exit".green
   end
 end
