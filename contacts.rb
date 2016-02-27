@@ -1,5 +1,5 @@
 require 'colorize'
-require_relative 'src/database_functions.rb'
+require_relative 'src/class_contacts.rb'
 puts "                ------------------------------------".green
 puts "                    Welcome to Contacts Manager".yellow
 puts "                ------------------------------------".green
@@ -10,18 +10,21 @@ answer = gets.chomp
 count = 0
 check = false
   while(count == 0) || (check == false)
+
     if(answer.downcase == "y")
       puts"What is the name of your contacts database".yellow
       name = gets.chomp
-      db = DatabaseFunctions.open_contact_list(name)
+      db = Contacts.open_list(name)
       check = db
       count += 1
+
     elsif(answer.downcase == "n")
       puts "I will create one for your. What do you want to call it.".yellow
       name = gets.chomp
-      db = DatabaseFunctions.create_contact_list(name)
+      db = Contacts.create_list(name)
       check = db
       count += 1
+
     else
       puts"valid respose is Y or N".red
       puts"your response again please:".yellow
@@ -29,25 +32,32 @@ check = false
     end
   end
   puts " "
-  DatabaseFunctions.help
+  Contacts.help
   while true
     puts "type a command:"
     init_command = gets.chomp
     command = init_command.split(" ")
     length = command.length
+
     if(command[0].downcase == "exit")
       puts "Goodbye #{user_name}. I hope to see you soon!".yellow
       break
-    elsif(command[0] == "add")
-      DatabaseFunctions.add_contact(init_command,length,db)
+
+    elsif(command[0].downcase == "add")
+      Contacts.add(init_command,length,db)
+
     elsif(length == 2) && (command[0] == "search")
-      DatabaseFunctions.search(init_command, db)
+      Contacts.search(init_command, db)
+
     elsif(command[0] == "text") && (command[2] == "-m") 
-      DatabaseFunctions.send_message(init_command,db,user_name)
-    elsif(command[0].downcase == "list") && (length == 1) 
-      DatabaseFunctions.list(db)
+      Contacts.send_message(init_command,db,user_name)
+
+    elsif(command[0] == "list") && (length == 1) 
+      Contacts.list(db)
+
     elsif(command[0].downcase == "help") && (length == 1)
-      DatabaseFunctions.help
+      Contacts.help
+      
     else
       puts"Invalid command. please type help to see valid commands".red
     end
