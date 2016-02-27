@@ -1,7 +1,7 @@
 
 <a href="https://codeclimate.com/repos/56cfb20278a2e5008500347f/feed"><img src="https://codeclimate.com/repos/56cfb20278a2e5008500347f/badges/e531666b51edf2494ca9/gpa.svg" /></a>
 										
-##CONTACT MANAGER AND SMS APPLICATION**
+##CONTACT MANAGER AND SMS APPLICATION
 
 
 This application is a console application for managing contacts. It has the following functionality:
@@ -20,7 +20,7 @@ The application has an interactive command line interface that forms a relations
 of the application. Note that the database system used is SQLite database system.
 					
 
-###LIST OF VALID COMMANDS IN THE APPLICATION**
+###LIST OF VALID COMMANDS IN THE APPLICATION
 
 
 *TO ADD A CONTACT: add -n [FirstName] [LastNAme] -p [PhoneNumber]. Note that it is not
