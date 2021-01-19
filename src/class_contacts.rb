@@ -141,7 +141,7 @@ class Contacts
       i += 1
     end
     msg = arr.join(" ")
-    send_msg = open("http://api.smartsmssolutions.com/smsapi.php?username=oseahumhen&password=osevera&sender=#{user_name}&recipient=#{phone_number}&message=#{msg}")
+    send_msg = open("http://api.smartsmssolutions.com/smsapi.php?&sender=#{user_name}&recipient=#{phone_number}&message=#{msg}")
     
     if (send_msg.status[1] == "OK")
       puts "message sent!".green
